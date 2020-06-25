@@ -1,0 +1,11 @@
+FROM pkosiec/mongo-seeding:latest
+
+COPY ./seed /import-data
+
+ENV DB_HOST $DB_HOST
+ENV DB_NAME $DB_NAME
+ENV DB_PORT $DB_PORT
+ENV DROP_DATABASE $DROP_DATABASE
+ENV REPLACE_ID $REPLACE_ID
+
+WORKDIR /import-data

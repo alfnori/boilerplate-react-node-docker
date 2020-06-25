@@ -1,0 +1,32 @@
+[
+    {
+        "_id": {"$oid": "5e1b2b28d9c96d4c236ee2d6"},
+        "name": "Administrativo",
+        "tag": "AD"
+    },
+    {
+        "_id": {"$oid": "5e1b2b28d9c96d272b6ee2d7"},
+        "name": "Comercial",
+        "tag": "CO"
+    },
+    {
+        "_id": {"$oid": "5e1b2b28d9c96df6e96ee2d8"},
+        "name": "Financeiro",
+        "tag": "FI"
+    },
+    {
+        "_id": {"$oid": "5e1b2b28d9c96d0e126ee2d9"},
+        "name": "Manutenção",
+        "tag": "MA"
+    },
+    {
+        "_id": {"$oid": "5e1b2b28d9c96d1c576ee2da"},
+        "name": "Recursos Humanos",
+        "tag": "RH"
+    },
+    {
+        "_id": {"$oid": "5e1b2b28d9c96d73f66ee2db"},
+        "name": "Tecnologia da Informação",
+        "tag": "TI"
+    }
+]

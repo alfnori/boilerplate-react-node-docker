@@ -1,0 +1,82 @@
+version: "3"
+services:
+  mongo:
+    image: "mongo"
+    expose:
+      - "${DATABASE_PORT}"
+    ports:
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
+    networks:
+      - "nodecrude"
+    volumes:
+      - "./db:/data/db"
+    entrypoint:
+      - "/usr/bin/mongod"
+      - "--bind_ip_all"
+      - "--port"
+      - "${DATABASE_PORT}"
+  seed:
+    build: "./db_seed"
+    volumes:
+      - "./db_seed:/data/seed"
+    networks:
+      - "nodecrude"
+    depends_on:
+      - "mongo"
+    environment:
+      - "DB_HOST=mongo"
+      - "DB_PORT=${DATABASE_PORT}"
+      - "DB_NAME=${DATABASE_NAME}"
+      - "DROP_DATABASE=${DATABASE_SEED_DROP_DB}"
+      - "DROP_COLLECTIONS=${DATABASE_SEED_DROP_COLLECTION}"
+      - "REPLACE_ID=true"
+  node:
+    build: "./backend"
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+      - "${SERVER_DEBUG_PORT}:${SERVER_DEBUG_PORT}"
+    networks:
+      - "nodecrude"
+    volumes:
+      - "./backend:/data/backend"
+    depends_on:
+      - "mongo"
+      - "seed"
+    environment:
+      - "DATABASE_URL=mongo:${DATABASE_PORT}"
+      - "DATABASE_NAME=${DATABASE_NAME}"
+      - "SERVER_PORT=${SERVER_PORT}"
+      - "DEBUG_PORT=${SERVER_DEBUG_PORT}"
+      - "DEBUG_TAG=${DEBUG_TAG}"
+      - "RUN_MODE=${SERVER_MODE}"
+      - "APP_JWT_SECRET=$APP_JWT_SECRET"
+  react:
+    stdin_open: true
+    build:
+      context: "./frontend"
+      dockerfile: "${FRONTEND_DOCKERFILE}"
+      args:
+        - "SERVER_PORT=${SERVER_PORT}"
+        - "NETWORK_GATEWAY=${NETWORK_GATEWAY}"
+    ports:
+      - "${FRONTEND_PORT_SOCKET}:${FRONTEND_PORT_SOCKET}"
+      - "${FRONTEND_PORT_DEV}:${FRONTEND_PORT_DEV}"
+      - "${FRONTEND_PORT_PROD}:${FRONTEND_PORT_PROD}"
+    networks:
+      - "nodecrude"
+    volumes:
+      - "./frontend:/data/frontend"
+    depends_on:
+      - "node"
+    environment:
+      - "SERVER_PORT=${SERVER_PORT}"
+      - "NETWORK_GATEWAY=${NETWORK_GATEWAY}"
+      - "FRONTEND_PORT_DEV=${FRONTEND_PORT_DEV}"
+      - "FRONTEND_PORT_PROD=${FRONTEND_PORT_PROD}"
+networks:
+  nodecrude:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: ${NETWORK_GATEWAY}/16

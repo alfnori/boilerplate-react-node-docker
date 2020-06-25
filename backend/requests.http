@@ -1,0 +1,89 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTE4MTVhNmU1YzU2ZTA4NTYzMzY5NGYiLCJuYW1lIjoiQWRvbGZvIEx1aXoiLCJlbWFpbCI6ImFsZm5vcmlAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE1ODU3Nzc3NjEsImV4cCI6MTYxNzMzNTM2MX0.S_poT_QeukSRHwKRgEUhdWk_Yr0VQmMyl_pH0tQnYJE
+### Get department list
+GET http://localhost:8089/api/departments/
+Authorization: Bearer {{token}} 
+
+### Get status list
+GET http://localhost:8089/api/status/
+Authorization: Bearer {{token}} 
+
+### Get employee list
+GET http://localhost:8089/api/employee?sortx={"name":"asc"}&filter={"email":"alfnori"}
+Authorization: Bearer {{token}} 
+
+### Get one employee
+GET http://localhost:8089/api/employee/5e17a4f5034c4b01a6ce749d
+Authorization: Bearer {{token}} 
+
+### Create employee
+POST http://localhost:8089/api/employee/create HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}} 
+
+{
+  "email": {
+    "work": "exampleuser@gmail.com",
+    "personal": "exampleuser@gmail.com"
+  },
+  "designation": "brown",
+  "document": "docNew",
+  "name": "ExampleUser",
+  "phoneNumber": "9494022123",
+  "address": "234 Emerson Place, Kimmell, Alaska, 301",
+  "lastSalary": 0.0071,
+  "birthDate": "2008-04-20T02:17:43.000Z",
+  "admissionDate": "1970-02-22T04:25:38.000Z",
+  "resignationDate": "2010-05-05T02:45:54.000Z"
+}
+
+### Update employee
+PUT http://localhost:8089/api/employee/update/5e13ce442491383f7112ad10 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}} 
+
+{
+  "email": {
+    "work": "exampleuser@gmail.com",
+    "personal": "exampleuser@gmail.com"
+  },
+  "designation": "brown",
+  "document": "docUpdate",
+  "name": "ExampleUser",
+  "phoneNumber": "9494022123",
+  "address": "234 Emerson Place, Kimmell, Alaska, 301",
+  "lastSalary": 0.71,
+  "birthDate": "2008-04-20T02:17:43.000Z",
+  "admissionDate": "1970-02-22T04:25:38.000Z",
+  "resignationDate": "2010-05-05T02:45:54.000Z"
+}
+
+### Delete employee
+DELETE http://localhost:8089/api/employee/delete/5e17e0de2fc30704eaf2d001
+Authorization: Bearer {{token}} 
+
+
+#### USER REQUEST
+
+### Get user from token
+GET http://localhost:8089/api/user/current
+Authorization: Bearer {{token}} 
+
+### Create user
+POST http://localhost:8089/api/auth/sign/up HTTP/1.1
+content-type: application/json
+
+{
+  "name": "ExampleUser2",
+  "email": "exampleuser2@gmail.com",
+  "password": "S3crt3t$",
+  "passwordConfirm": "S3crt3t$"
+}
+
+### Login user
+POST http://localhost:8089/api/auth/sign/in HTTP/1.1
+content-type: application/json
+
+{
+  "email": "exampleuser@gmail.com",
+  "password": "S3crt3t$"
+}

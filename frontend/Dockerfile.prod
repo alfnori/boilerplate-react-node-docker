@@ -1,0 +1,23 @@
+FROM node:carbon as build-stage
+WORKDIR /data-prod/
+
+ENV CI=true
+
+# Install dependecies
+COPY package*.json ./
+RUN npm install
+
+# Assert build configuration
+ARG SERVER_PORT
+ENV SERVER_PORT=$SERVER_PORT
+ARG NETWORK_GATEWAY
+ENV NETWORK_GATEWAY=NETWORK_GATEWAY
+COPY . .
+RUN ["chmod", "+x", "/data-prod/docker/build.sh"]
+RUN npm run build
+
+# Publish build
+FROM nginx as production-stage
+COPY --from=build-stage /data-prod/dist /usr/share/nginx/html
+EXPOSE $FRONTEND_PORT_PROD
+CMD ["nginx", "-g", "daemon off;"]

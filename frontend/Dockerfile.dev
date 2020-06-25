@@ -1,0 +1,24 @@
+FROM node:carbon
+
+ENV NODE_PATH=/node_modules
+ENV PATH=$PATH:/node_modules/.bin
+
+ENV CI=true
+ENV DEPLOY = "DEV"
+ENV CHOKIDAR_USEPOLLING=true
+
+# Assert entrypoint
+COPY ./docker/entrypoint.sh /entrypoint/frontend/
+RUN ["chmod", "+x", "entrypoint/frontend/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint/frontend/entrypoint.sh"]
+
+ADD package.json /data/frontend/package.json
+
+# Copy/mount node app here
+WORKDIR /data/frontend/
+ADD . /data/frontend
+
+EXPOSE $FRONTEND_PORT_DEV
+EXPOSE $FRONTEND_PORT_SOCKET
+
+CMD ["npm", "run", "local"]

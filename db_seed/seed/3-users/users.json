@@ -1,0 +1,14 @@
+[
+  {
+    "role": "user",
+    "_id": {"$oid": "5e1815a6e5c56e085633694f"},
+    "name": "ExampleUser",
+    "email": "exampleuser@gmail.com",
+    "password": "$2b$10$0QPHul0vGEvqOs3UtjOYkO8nrdO1XhrIzI5sneq5vICXdAUvLz0r.",
+    "passwordPlain": "//Password: S3crt3t$ --> just for example login ",
+    "salt": "$2b$10$0QPHul0vGEvqOs3UtjOYkO",
+    "updatedAt": "2020-01-10T06:11:50.257Z",
+    "createdAt": "2020-01-10T06:11:50.257Z",
+    "__v": 0
+  }
+]

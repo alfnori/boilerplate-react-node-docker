@@ -1,0 +1,82 @@
+[
+  {
+    "email": {
+      "work": "contrerasfox@flumbo.com",
+      "personal": "contrerasfox@flumbo.com"
+    },
+    "_id": {"$oid": "5e13ce442491383f7112ade3"},
+    "designation": "brown",
+    "document": "doc1",
+    "name": "Contreras Fox",
+    "phoneNumber": "9494022376",
+    "address": "753 Emerson Place, Kimmell, Alaska, 301",
+    "lastSalary": 0.0071,
+    "birthDate": "2008-04-20T02:17:43.000Z",
+    "admissionDate": "1970-02-22T04:25:38.000Z",
+    "resignationDate": "2010-05-05T02:45:54.000Z"
+  },
+  {
+    "email": {
+      "work": "deannsullivanfox@flumbo.com",
+      "personal": "deannsullivan1fox@flumbo.com"
+    },
+    "_id": {"$oid": "5e13ce442491383f7112ade4"},
+    "designation": "green",
+    "document": "doc2",
+    "name": "Deann Sullivan",
+    "phoneNumber": "9744752110",
+    "address": "397 Hyman Court, Torboy, Maine, 3178",
+    "lastSalary": 2.6939,
+    "birthDate": "1995-05-31T09:34:17.000Z",
+    "admissionDate": "2009-06-09T16:47:48.000Z",
+    "resignationDate": "1983-04-29T00:46:47.000Z"
+  },
+  {
+    "email": {
+      "work": "wallacemueller@flumbo.com",
+      "personal": "wallacemueller@flumbo.com"
+    },
+    "_id": {"$oid": "5e13ce442491383f7112ade5"},
+    "designation": "green",
+    "document": "doc3",
+    "name": "Wallace Mueller",
+    "phoneNumber": "8805082751",
+    "address": "390 Diamond Street, Murillo, Kansas, 2948",
+    "lastSalary": 6.6523,
+    "birthDate": "1978-12-09T21:58:26.000Z",
+    "admissionDate": "1971-02-21T03:19:37.000Z",
+    "resignationDate": "1993-09-08T10:42:38.000Z"
+  },
+  {
+    "email": {
+      "work": "vaughnnoel@flumbo.com",
+      "personal": "vaughnnoel@flumbo.com"
+    },
+    "_id": {"$oid": "5e13ce442491383f7112ade6"},
+    "designation": "blue",
+    "document": "doc4",
+    "name": "Vaughn Noel",
+    "phoneNumber": "8834323624",
+    "address": "705 Sedgwick Street, Clayville, Texas, 6693",
+    "lastSalary": 6.9075,
+    "birthDate": "1977-11-30T16:17:23.000Z",
+    "admissionDate": "1970-03-24T21:29:53.000Z",
+    "resignationDate": "1992-11-23T07:00:06.000Z"
+  },
+  {
+    "email": {
+      "work": "manningtalley@flumbo.com",
+      "personal": "manningtalley@flumbo.com"
+    },
+    "_id": {"$oid": "5e13ce442491383f7112ade7"},
+    "designation": "blue",
+    "document": "doc5",
+    "name": "Manning Talley",
+    "phoneNumber": "8885813008",
+    "address": "435 Alabama Avenue, Toftrees, Massachusetts, 9167",
+    "lastSalary": 9.5018,
+    "birthDate": "1976-07-31T07:54:00.000Z",
+    "admissionDate": "1982-02-24T16:19:41.000Z",
+    "resignationDate": "2001-06-12T10:59:29.000Z"
+  }
+]

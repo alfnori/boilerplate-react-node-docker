@@ -1,0 +1,32 @@
+[
+    {
+        "_id": {"$oid": "5e1b2b29d9c96d08e36ee2dc"},
+        "name": "Em contratação",
+        "tag": "NC",
+        "order": 1
+    },
+    {
+        "_id": {"$oid": "5e1b2b29d9c96d4e946ee2dd"},
+        "name": "Contratado",
+        "tag": "CO",
+        "order": 2
+    },
+    {
+        "_id": {"$oid": "5e1b2b29d9c96d0af46ee2de"},
+        "name": "Afastamento",
+        "tag": "AF                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ",
+        "order": 3
+    },
+    {
+        "_id": {"$oid": "5e1b2b29d9c96dde3d6ee2df"},
+        "name": "Em demissão",
+        "tag": "ND",
+        "order": 4
+    },
+    {
+        "_id": {"$oid": "5e1b2b29d9c96d31566ee2e0"},
+        "name": "Demitido",
+        "tag": "DE",
+        "order": 5
+    }
+]
